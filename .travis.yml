@@ -20,3 +20,16 @@ after_success:
   - docker push mavihay/mworker
   - docker push mavihay/mserver
   - docker push mavihay/mnginx
+  
+deploy:
+  edge: true
+  provider: elasticbeanstalk
+  region: "eu-west-1"
+  app: "mdocker"
+  env: "MultiDocker-env"
+  bucket_name: "elasticbeanstalk-eu-west-1-933292581552"
+  bucket_path: "mdocker"
+  access_key_id: $AWS_ACCESS_KEY
+  secret_access_key: $AWS_SECRET_KEY
+  on:
+    branch: master

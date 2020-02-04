@@ -1,0 +1,37 @@
+{
+  "AWSEBDockerrunVersion": 2,
+  "containerDefinitions": [
+    {
+	  "name": "client",
+	  "image": "mavihay/mclient",
+	  "hostname": "client",
+	  "essential": false
+	},
+	{
+	  "name": "server",
+	  "image": "mavihay/mserver",
+	  "hostname": "api",
+	  "essential": false
+	},
+	{
+	  "name": "worker",
+	  "image": "mavihay/mworker",
+	  "hostname": "worker",
+	  "essential": false
+	},
+	{
+	  "name": "nginx",
+	  "image": "mavihay/mnginx",
+	  "hostname": "nginx",
+	  "essential": true,
+	  "portMappings": [
+	    {
+		  "hostPort": 80,
+		  "containerPort": 80
+		}
+      ],
+	  "links": ["client", "server"]
+	}
+  ]
+}
+
