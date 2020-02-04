@@ -15,7 +15,7 @@ after_success:
   - docker build -t mavihay/mnginx ./nginx
   #log docker client
   - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --pasword-stdin
-  #take images and push them to docker hub 
+  #take images and push themh to docker hub 
   - docker push mavihay/mclient
   - docker push mavihay/mworker
   - docker push mavihay/mserver
